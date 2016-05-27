@@ -243,18 +243,18 @@ echo -e "\nPlease wait. Installing CDT.LAUNCH.REMOTE.FEATURE.GROUP"
 CDTREMOTEVER="8.8.1"
 update_feature_remote ${MAIN_SITE} org.eclipse.cdt.launch.remote.feature.group ${CDTREMOTEVER}
 
-#RSE_SDK
-echo -e "\nPlease wait. Installing RSE.SDK.FEATURE.GROUP"
-RSESDKVER="3.7.0"
-update_feature_remote ${TM_SITE} org.eclipse.rse.sdk.feature.group ${RSESDKVER}
+#TM Terminal (was RSE) related
+echo -e "\nPlease wait. Installing TM.TERMINAL.FEATURE.FEATURE.GROUP"
+TMTERMVER="4.0.0"
+update_feature_remote ${MAIN_SITE} org.eclipse.tm.terminal.feature.feature.group ${TMTERMVER}
+
+echo -e "\nPlease wait. Installing TM.TERMINAL.VIEW.RSE.FEATURE.GROUP"
+TMTERMVIEWRSEVER="4.0.0"
+update_feature_remote ${MAIN_SITE} org.eclipse.tm.terminal.view.rse.feature.feature.group ${TMTERMVIEWRSEVER}
 
 echo -e "\nPlease wait. Installing TM.TERMINAL.CONTROL.FEATURE.GROUP"
 TMCONTROLVER="4.0.0"
-update_feature_remote ${TM_TERMINAL_SITE} org.eclipse.tm.terminal.control.feature.feature.group ${TMCONTROLVER}
-
-echo -e "\nPlease wait. Installing RSE.TERMINALS.FEATURE.GROUP"
-TMVER="3.8.0"
-update_feature_remote ${TM_SITE} org.eclipse.rse.terminals.feature.group ${TMVER}
+update_feature_remote ${MAIN_SITE} org.eclipse.tm.terminal.control.feature.feature.group ${TMCONTROLVER}
 
 #AUTOTOOLS
 echo -e "\nPlease wait. Installing AUTOTOOLS.FEATURE.GROUP"
