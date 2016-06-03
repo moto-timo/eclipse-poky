@@ -225,9 +225,9 @@ then
         MAIN_SITE="http://download.eclipse.org/releases/mars"
         DEPRECATED_SITE="http://download.eclipse.org/releases/luna"
         TM_SITE="http://download.eclipse.org/tm/updates/4.0/GA"
-	TM_TERMINAL_SITE="http://download.eclipse.org/tm/terminal/updates/4.0/GA"
 else
         MAIN_SITE="http://downloads.yoctoproject.org/eclipse/mars/"
+        TM_SITE="http://downloads.yoctoproject.org/tm/updates/4.0/"
         DEPRECATED_SITE="http://downloads.yoctoproject.org/eclipse/luna/ftp.osuosl.org/pub/eclipse/releases/luna"
 fi
 
@@ -255,6 +255,16 @@ update_feature_remote ${MAIN_SITE} org.eclipse.tm.terminal.view.rse.feature.feat
 echo -e "\nPlease wait. Installing TM.TERMINAL.CONTROL.FEATURE.GROUP"
 TMCONTROLVER="4.0.0"
 update_feature_remote ${MAIN_SITE} org.eclipse.tm.terminal.control.feature.feature.group ${TMCONTROLVER}
+
+#RSE_SDK
+echo -e "\nPlease wait. Installing RSE.SDK.FEATURE.GROUP"
+RSESDKVER="3.7.0"
+update_feature_remote ${TM_SITE} org.eclipse.rse.sdk.feature.group ${RSESDKVER}
+
+#RSE_TERMINALS
+echo -e "\nPlease wait. Installing RSE.TERMINALS.FEATURE.GROUP"
+RSETERMVER="3.8.0"
+update_feature_remote ${TM_SITE} org.eclipse.rse.terminals.feature.group ${RSETERMVER}
 
 #AUTOTOOLS
 echo -e "\nPlease wait. Installing AUTOTOOLS.FEATURE.GROUP"
