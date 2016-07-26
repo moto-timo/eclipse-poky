@@ -55,14 +55,14 @@
         label="eclipse-poky password for Bugzilla/Hudson"
         documentation="The eclipse-poky password for Bugzilla/Hudson.  Leave empty if you don't have an account or don't plan to submit bugs.">
       <annotation
-          source="https://git.yoctoproject.org/eclipse-poky/??????">
+          source="https://github.org/moto-timo/eclipse-poky/??????">
         <detail
             key="type">
           <value>form</value>
         </detail>
         <detail
             key="form.url">
-          <value>https://git.yoctoproject.org/eclipse-poky/eclipse-poky/users/sign_in</value>
+          <value>https://github.org/moto-timo/eclipse-poky/users/sign_in</value>
         </detail>
         <detail
             key="form.cookie">
@@ -117,7 +117,7 @@
         </detail>
         <detail
             key="form.url">
-          <value>https://git.yoctoproject.org/eclipse-poky/users/sign_in</value>
+          <value>https://github.org/moto-timo/eclipse-poky/users/sign_in</value>
         </detail>
         <detail
             key="form.parameters">
@@ -145,7 +145,7 @@
         </detail>
         <detail
             key="form.verification.url">
-          <value>https://git.yoctoprojec.org/eclipse-poky/u/$${git.user.id|username}</value>
+          <value>https://github.org/moto-timo/eclipse-poky/u/$${git.user.id|username}</value>
         </detail>
         <detail
             key="form.verification.matches">
@@ -174,7 +174,7 @@
         name="eclipse-poky.git.remoteURIs"
         label="eclipse-poky Git Repository">
       <choice
-          value="http://git.yoctoproject.org/git/@{remoteURI}"
+          value="https://github.org/moto-timo/@{remoteURI}"
           label="HTTP (read-only, anonymous, direct)"/>
       <choice
           value="ssh://${git.user.id|username}@git.yoctoproject.org/:@{remoteURI}.git"
