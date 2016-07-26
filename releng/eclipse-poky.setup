@@ -1,0 +1,636 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<setup:Project
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:git="http://www.eclipse.org/oomph/setup/git/1.0"
+    xmlns:jdt="http://www.eclipse.org/oomph/setup/jdt/1.0"
+    xmlns:pde="http://www.eclipse.org/oomph/setup/pde/1.0"
+    xmlns:predicates="http://www.eclipse.org/oomph/predicates/1.0"
+    xmlns:projects="http://www.eclipse.org/oomph/setup/projects/1.0"
+    xmlns:setup="http://www.eclipse.org/oomph/setup/1.0"
+    xmlns:setup.p2="http://www.eclipse.org/oomph/setup/p2/1.0"
+    xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
+    xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
+    xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/jdt/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/JDT.ecore http://www.eclipse.org/oomph/setup/pde/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/PDE.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
+    name="eclipse-poky"
+    label="eclipse-poky">
+  <setupTask
+      xsi:type="setup:CompoundTask"
+      name="Global Variables">
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="git.user.id"
+        defaultValue="anonymous"
+        label="eclipse-poky Git/Gerrit user ID"
+        documentation="The Gitlab user ID for Git/Gerrit commits.  Use 'anonymous' if you have no Gitlab user ID.">
+      <description>The user ID of the eclipse-poky Git/Gerrit account</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="git.author.name"
+        label="eclipse-poky author name for Git/Gerrit"
+        documentation="The eclipse-poky author name for Git/Gerrit commits.  Use 'Anonymous' if you're not a registered eclipse-poky Git author or don't plan to commit to Git.">
+      <description>The author name used for Git/Gerrit commits</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="git.author.email"
+        label="eclipse-poky author email for Git/Gerrit"
+        documentation="The eclipse-poky author email for Git/Gerrit commits.  Use 'anonymous@example.com' if you're not a registered eclipse-poky Git author or don't plan to commit to Git.">
+      <description>The email address associated with Git/Gerrit commits</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="bugzilla.id"
+        defaultValue="anonymous"
+        label="eclipse-poky user ID for Bugzilla/Hudson"
+        documentation="The eclipse-poky user ID for Bugzilla/Hudson.  Leave empty if you don't have an account or don't plan to submit bugs.">
+      <description>The email associated with the eclipse-poky Bugzilla/Hudson account</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        type="PASSWORD"
+        name="eclipse-poky.user.password"
+        label="eclipse-poky password for Bugzilla/Hudson"
+        documentation="The eclipse-poky password for Bugzilla/Hudson.  Leave empty if you don't have an account or don't plan to submit bugs.">
+      <annotation
+          source="https://git.yoctoproject.org/eclipse-poky/??????">
+        <detail
+            key="type">
+          <value>form</value>
+        </detail>
+        <detail
+            key="form.url">
+          <value>https://git.yoctoproject.org/eclipse-poky/eclipse-poky/users/sign_in</value>
+        </detail>
+        <detail
+            key="form.cookie">
+          <value>_gitlab_session</value>
+        </detail>
+        <detail
+            key="form.parameters">
+          <value>username password submit</value>
+        </detail>
+        <detail
+            key="form.secure.parameters">
+          <value>password</value>
+        </detail>
+        <detail
+            key="form.filter">
+          <value>username=anonymous\&amp;.*</value>
+        </detail>
+        <detail
+            key="form.parameter.username">
+          <value>$${bugzilla.id}</value>
+        </detail>
+        <detail
+            key="form.parameter.password">
+          <value>$${value}</value>
+        </detail>
+        <detail
+            key="form.parameter.submit">
+          <value>Login</value>
+        </detail>
+        <detail
+            key="form.ok">
+          <value>Valid password for $${form.parameter.username} at $${form.url}.</value>
+        </detail>
+        <detail
+            key="form.info">
+          <value>Validate the password for $${form.parameter.username} at $${form.url}.</value>
+        </detail>
+        <detail
+            key="form.warning">
+          <value>Unable to validate the password for $${form.parameter.username} because $${form.url} is unreachable.</value>
+        </detail>
+        <detail
+            key="form.error">
+          <value>Invalid password for $${form.parameter.username} at $${form.url}.</value>
+        </detail>
+      </annotation>
+      <annotation
+          source="http://www.eclipse.org/oomph/setup/PasswordVerification">
+        <detail
+            key="type">
+          <value>form</value>
+        </detail>
+        <detail
+            key="form.url">
+          <value>https://git.yoctoproject.org/eclipse-poky/users/sign_in</value>
+        </detail>
+        <detail
+            key="form.parameters">
+          <value>username password submit</value>
+        </detail>
+        <detail
+            key="form.secure.parameters">
+          <value>password</value>
+        </detail>
+        <detail
+            key="form.filter">
+          <value>username=anonymous\&amp;.*</value>
+        </detail>
+        <detail
+            key="form.parameter.username">
+          <value>$${bugzilla.id}</value>
+        </detail>
+        <detail
+            key="form.parameter.password">
+          <value>$${value}</value>
+        </detail>
+        <detail
+            key="form.parameter.submit">
+          <value>Sign In</value>
+        </detail>
+        <detail
+            key="form.verification.url">
+          <value>https://git.yoctoprojec.org/eclipse-poky/u/$${git.user.id|username}</value>
+        </detail>
+        <detail
+            key="form.verification.matches">
+          <value>.*&quot;email&quot;: &quot;$${form.parameter.username}&quot;.*</value>
+        </detail>
+        <detail
+            key="form.ok">
+          <value>Valid password for account $${git.user.id} of $${form.parameter.username} at $${form.url}.</value>
+        </detail>
+        <detail
+            key="form.info">
+          <value>Validate the password for account $${git.user.id} of $${form.parameter.username} at $${form.url}.</value>
+        </detail>
+        <detail
+            key="form.warning">
+          <value>Unable to validate the password for account $${git.user.id} of $${form.parameter.username} because $${form.url} is unreachable.</value>
+        </detail>
+        <detail
+            key="form.error">
+          <value>Invalid password for account $${git.user.id} of $${form.parameter.username} at $${form.url}.</value>
+        </detail>
+      </annotation>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="eclipse-poky.git.remoteURIs"
+        label="eclipse-poky Git Repository">
+      <choice
+          value="http://git.yoctoproject.org/git/@{remoteURI}"
+          label="HTTP (read-only, anonymous, direct)"/>
+      <choice
+          value="ssh://${git.user.id|username}@git.yoctoproject.org/:@{remoteURI}.git"
+          label="SSH (read-write, direct)">
+        <annotation
+            source="http://www.eclipse.org/oomph/setup/MatchChoice"/>
+      </choice>
+      <description>Choose from the available Git URIs</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="eclipse-poky.git.gerrit.remoteURIs"
+        label="eclipse-poky Gerrit or Git Repository">
+      <annotation
+          source="http://www.eclipse.org/oomph/setup/InheritedChoices">
+        <detail
+            key="inherit">
+          <value>eclipse-poky.git.remoteURIs</value>
+        </detail>
+      </annotation>
+      <description>Choose from the available Gerrit or Git URIs</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:VariableTask"
+        name="eclipse.target.platform"
+        defaultValue="None"
+        storageURI="scope://Workspace"
+        label="Target Platform">
+      <annotation
+          source="http://www.eclipse.org/oomph/setup/GlobalVariable"/>
+      <choice
+          value="Neon"
+          label="Eclipse Neon - 4.6"/>
+      <choice
+          value="Mars"
+          label="Eclipse Mars - 4.5"/>
+      <choice
+          value="Luna"
+          label="Eclipse Luna - 4.4"/>
+      <choice
+          value="Kepler"
+          label="Eclipse Luna - 4.3"/>
+      <choice
+          value="None"
+          label="None"/>
+      <description>Choose the compatibility level of the target platform</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup:CompoundTask"
+        name="Github">
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="github.user.id"
+          label="Github user ID">
+        <description>The Github user ID</description>
+      </setupTask>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="github.author.name"
+          label="Github author name"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="github.author.email"
+          label="Github author email"/>
+      <setupTask
+          xsi:type="setup:VariableTask"
+          name="github.remoteURIs"
+          label="Github repository">
+        <choice
+            value="git@github.com:@{remoteURI}.git"
+            label="Git (read-write)"/>
+        <choice
+            value="https://${github.user.id|username}@github.com/@{remoteURI}.git"
+            label="HTTPS (read-write)"/>
+        <choice
+            value="https://github.com/@{remoteURI}.git"
+            label="HTTPS (read-only, anonymous)"/>
+        <description>Choose from the available Github URIs</description>
+      </setupTask>
+    </setupTask>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      id="cbi"
+      label="cbi">
+    <requirement
+        name="org.eclipse.license.feature.group"
+        versionRange="[1.0.0,2.0.0)"/>
+    <repository
+        url="http://download.eclipse.org/cbi/updates/license"/>
+    <description>cbi</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      id="updates-4.5"
+      label="updates-4.5">
+    <requirement
+        name="org.eclipse.sdk.ide"
+        versionRange="[4.5.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.platform.ide"
+        versionRange="[4.5.0,5.0.0)"/>
+    <repository
+        url="http://download.eclipse.org/eclipse/updates/4.5/"/>
+    <description>updates-4.5</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      id="releases-mars"
+      label="releases-mars">
+    <requirement
+        name="org.eclipse.cdt.feature.group"
+        versionRange="[8.8.0,9.0.0)"/>
+    <requirement
+        name="org.eclipse.cdt.autotools.feature.group"
+        versionRange="[8.8.0,9.0.0)"/>
+    <requirement
+        name="org.eclipse.egit.feature.group"
+        versionRange="[4.3.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.mylyn.bugzilla_feature.feature.group"
+        versionRange="[3.0.0,4.0.0)"/>
+    <requirement
+        name="org.eclipse.egit.mylyn.feature.group"
+        versionRange="[4.3.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.linuxtools.cdt.libhover.feature.feature.group"
+        versionRange="[4.0.0,6.0.0)"/>
+    <requirement
+        name="org.eclipse.tcf.te.tcf.launch.cdt.feature.feature.group"
+        versionRange="[1.3.0,2.0.0)"/>
+    <requirement
+        name="org.eclipse.cdt.launch.remote.feature.group"
+        versionRange="[8.8.0,9.0.0)"/>
+    <requirement
+        name="org.eclipse.cdt.testsrunner.feature.feature.group"
+        versionRange="[8.8.0,9.0.0)"/>
+    <requirement
+        name="org.eclipse.linuxtools.gcov.feature.group"
+        versionRange="[4.0.0,6.0.0)"/>
+    <requirement
+        name="org.eclipse.launchbar.feature.group"
+        versionRange="[1.0.0,3.0.0)"/>
+    <requirement
+        name="org.eclipse.tracecompass.lttng2.kernel.feature.group"
+        versionRange="[1.0.0,3.0.0)"/>
+    <requirement
+        name="org.eclipse.tracecompass.lttng2.ust.feature.group"
+        versionRange="[1.0.0,3.0.0)"/>
+    <requirement
+        name="org.eclipse.remote.feature.group"
+        versionRange="[2.0.0,3.0.0)"/>
+    <requirement
+        name="org.eclipse.m2e.feature.feature.group"
+        versionRange="[1.0.0,2.0.0)"/>
+    <requirement
+        name="org.eclipse.m2e.logback.feature.feature.group"
+        versionRange="[1.0.0,2.0.0)"/>
+    <repository
+        url="http://download.eclipse.org/releases/mars/"/>
+    <description>releases-mars</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      id="swtbot-latest"
+      label="swtbot-latest">
+    <requirement
+        name="org.eclipse.swtbot.eclipse.test.junit.feature.group"
+        versionRange="[2.4.0,3.0.0)"/>
+    <requirement
+        name="org.eclipse.swtbot.ide.feature.group"
+        versionRange="[2.4.0,3.0.0)"/>
+    <requirement
+        name="org.eclipse.swtbot.generator.feature.feature.group"
+        versionRange="[2.4.0,3.0.0)"/>
+    <requirement
+        name="org.eclipse.swtbot.eclipse.feature.group"
+        versionRange="[2.4.0,3.0.0)"/>
+    <repository
+        url="http://download.eclipse.org/technology/swtbot/releases/latest"/>
+    <description>swtbot-latest</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      id="tm-terminal-marketplace"
+      label="tm-terminal-marketplace">
+    <requirement
+        name="org.eclipse.rse.feature.group"
+        versionRange="[3.7.0,4.0.0)"/>
+    <requirement
+        name="org.eclipse.rse.scp.feature.group"
+        versionRange="[3.7.0,4.0.0)"/>
+    <requirement
+        name="org.eclipse.rse.terminals.feature.group"
+        versionRange="[3.8.0,4.0.0)"/>
+    <requirement
+        name="org.eclipse.rse.useractions.feature.group"
+        versionRange="[3.7.0,4.0.0)"/>
+    <requirement
+        name="org.eclipse.tm.terminal.view.feature.feature.group"
+        versionRange="[4.0.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.tm.terminal.view.sdk.feature.feature.group"
+        versionRange="[4.0.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.tm.terminal.feature.feature.group"
+        versionRange="[4.0.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.tm.terminal.control.feature.feature.group"
+        versionRange="[4.0.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.tm.terminal.control.sdk.feature.feature.group"
+        versionRange="[4.0.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.tm.terminal.connector.local.feature.feature.group"
+        versionRange="[4.0.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.tm.terminal.connector.local.sdk.feature.feature.group"
+        versionRange="[4.0.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.tm.terminal.connector.remote.sdk.feature.feature.group"
+        versionRange="[4.0.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.tm.terminal.connector.serial.feature.feature.group"
+        versionRange="[4.0.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.tm.terminal.connector.serial.sdk.feature.feature.group"
+        versionRange="[4.0.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.tm.terminal.connector.ssh.feature.feature.group"
+        versionRange="[4.0.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.tm.terminal.connector.ssh.sdk.feature.feature.group"
+        versionRange="[4.0.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.tm.terminal.connector.telnet.feature.feature.group"
+        versionRange="[4.0.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.tm.terminal.connector.telnet.sdk.feature.feature.group"
+        versionRange="[4.0.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.tm.terminal.connector.remote.feature.feature.group"
+        versionRange="[4.0.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.tm.terminal.view.rse.feature.feature.group"
+        versionRange="[4.0.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.tm.terminal.view.rse.sdk.feature.feature.group"
+        versionRange="[4.0.0,5.0.0)"/>
+    <requirement
+        name="org.eclipse.tm.terminal.sdk.feature.feature.group"
+        versionRange="[4.0.0,5.0.0)"/>
+    <repository
+        url="http://download.eclipse.org/tm/terminal/marketplace/"/>
+    <repository
+        url="http://downloads.yoctoproject.org/tm/updates/4.0/"/>
+    <description>tm-terminal-marketplace</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup.p2:P2Task"
+      id="orbit"
+      label="orbit">
+    <requirement
+        name="javax.inject"
+        versionRange="1.0.0.v20091030"/>
+    <requirement
+        name="com.google.gson"
+        versionRange="[2.2.0,3.0.0)"/>
+    <requirement
+        name="org.slf4j.impl.log4j12"
+        versionRange="[1.7.0,2.0.0)"/>
+    <requirement
+        name="org.slf4j.log4j"
+        versionRange="[1.7.0,2.0.0)"/>
+    <repository
+        url="http://download.eclipse.org/tools/orbit/downloads/drops/R20160221192158/repository/"/>
+    <description>orbit</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:EclipseIniTask"
+      id=""
+      option="-Xmx"
+      value="1g"
+      vm="true">
+    <description>Set the heap space needed to work with the projects of ${scope.project.label}</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:EclipseIniTask"
+      option="-XX:MaxPermSize="
+      value="256m"
+      vm="true">
+    <description>Set the perm size needed to work with the projects of ${scope.project.label}</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:ResourceCreationTask"
+      excludedTriggers="STARTUP MANUAL"
+      content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;section name=&quot;Workbench&quot;>&#xD;&#xA;&#x9;&lt;section name=&quot;org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart&quot;>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;true&quot; key=&quot;group_libraries&quot;/>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;false&quot; key=&quot;linkWithEditor&quot;/>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;2&quot; key=&quot;layout&quot;/>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;2&quot; key=&quot;rootMode&quot;/>&#xD;&#xA;&#x9;&#x9;&lt;item value=&quot;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;UTF-8&amp;quot;?&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;packageExplorer configured=&amp;quot;true&amp;quot; group_libraries=&amp;quot;1&amp;quot; layout=&amp;quot;2&amp;quot; linkWithEditor=&amp;quot;0&amp;quot; rootMode=&amp;quot;2&amp;quot; sortWorkingSets=&amp;quot;false&amp;quot; workingSetName=&amp;quot;&amp;quot;&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;localWorkingSetManager&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;workingSet editPageId=&amp;quot;org.eclipse.jdt.internal.ui.OthersWorkingSet&amp;quot; factoryID=&amp;quot;org.eclipse.ui.internal.WorkingSetFactory&amp;quot; id=&amp;quot;1382792884467_1&amp;quot; label=&amp;quot;Other Projects&amp;quot; name=&amp;quot;Other Projects&amp;quot;/&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;/localWorkingSetManager&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;activeWorkingSet workingSetName=&amp;quot;Other Projects&amp;quot;/&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;allWorkingSets workingSetName=&amp;quot;Other Projects&amp;quot;/&amp;gt;&amp;#x0D;&amp;#x0A;&amp;lt;/packageExplorer&amp;gt;&quot; key=&quot;memento&quot;/>&#xD;&#xA;&#x9;&lt;/section>&#xD;&#xA;&lt;/section>&#xD;&#xA;"
+      targetURL="${workspace.location|uri}/.metadata/.plugins/org.eclipse.jdt.ui/dialog_settings.xml"
+      encoding="UTF-8">
+    <description>Initialize JDT's package explorer to show working sets as its root objects</description>
+  </setupTask>
+  <setupTask
+      xsi:type="jdt:JRETask"
+      version="JavaSE-1.8"
+      location="${jre.location-1.8}">
+    <description>Define the JRE needed to compile and run the Java projects of ${scope.project.label}</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:VariableTask"
+      name="eclipse.target.platform"
+      defaultValue="Mars"
+      storageURI="scope://Workspace"/>
+  <setupTask
+      xsi:type="pde:APIBaselineFromTargetTask"
+      id="eclipse-poky.target"
+      name="eclipse-poky.target"
+      targetName="eclipse-poky">
+    <description>eclipse-poky.target</description>
+  </setupTask>
+  <setupTask
+      xsi:type="setup:VariableTask"
+      id="git.clone.eclipse-poky.location"
+      name="Git Clone Location"
+      defaultValue="${workspace.location/../git}"/>
+  <stream name="mars-master">
+    <setupTask
+        xsi:type="git:GitCloneTask"
+        id="git.clone.eclipse-poky"
+        remoteURI="eclipse-poky"
+        checkoutBranch="mars-master">
+      <annotation
+          source="http://www.eclipse.org/oomph/setup/InducedChoices">
+        <detail
+            key="inherit">
+          <value>eclipse-poky.git.gerrit.remoteURIs</value>
+        </detail>
+        <detail
+            key="label">
+          <value>${scope.project.label} Git or Gerrit Repository</value>
+        </detail>
+        <detail
+            key="target">
+          <value>remoteURI</value>
+        </detail>
+      </annotation>
+      <description>eclipse-poky</description>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.targlets:TargletTask"
+        programArguments="-consolelog"
+        vmArguments="-Xms40m -Xmx512M -ea">
+      <targlet
+          name="eclipse-poky"
+          activeRepositoryList="${eclipse.target.platform}">
+        <requirement
+            name="org.eclipse.platform.ide"/>
+        <requirement
+            name="org.apache.log4j"/>
+        <requirement
+            name="org.apache.log4j.source"/>
+        <requirement
+            name="org.apache.commons.compress"/>
+        <requirement
+            name="net.sourceforge.lpg.lpgjavaruntime"/>
+        <requirement
+            name="org.junit"/>
+        <requirement
+            name="org.junit.source"/>
+        <requirement
+            name="org.mockito"/>
+        <requirement
+            name="org.hamcrest.core"/>
+        <requirement
+            name="org.eclipse.swtbot.eclipse.feature.group"/>
+        <requirement
+            name="org.eclipse.swtbot.feature.group"/>
+        <requirement
+            name="org.eclipse.swtbot.eclipse.test.junit.feature.group"/>
+        <requirement
+            name="org.eclipse.rse.feature.group"/>
+        <requirement
+            name="org.eclipse.test.feature.group"/>
+        <requirement
+            name="org.eclipse.remote.feature.group"/>
+        <requirement
+            name="org.eclipse.license.feature.group"/>
+        <requirement
+            name="com.google.gson"/>
+        <requirement
+            name="org.eclipse.remote.serial.feature.group"/>
+        <requirement
+            name="org.eclipse.remote.console.feature.group"/>
+        <requirement
+            name="org.eclipse.tm.terminal.control"/>
+        <requirement
+            name="org.eclipse.launchbar.feature.group"/>
+        <requirement
+            name="org.eclipse.linuxtools.docker.feature.feature.group"/>
+        <requirement
+            name="org.eclipse.m2e.feature.feature.group"/>
+        <requirement
+            name="org.eclipse.jgit.feature.group"/>
+        <requirement
+            name="org.eclipse.jgit.source.feature.group"/>
+        <requirement
+            name="org.eclipse.cdt.feature.group"/>
+        <requirement
+            name="org.eclipse.cdt.sdk.feature.group"/>
+        <requirement
+            name="org.antlr.runtime"/>
+        <requirement
+            name="org.eclipse.sdk.ide"
+            versionRange="[4.5.0,5.0.0)"/>
+        <sourceLocator
+            rootFolder="${git.clone.eclipse-poky.location}"
+            locateNestedProjects="true"/>
+        <repositoryList
+            name="Mars">
+          <repository
+              url="http://download.eclipse.org/tools/orbit/downloads/drops/R20160221192158/repository/"/>
+          <repository
+              url="http://download.eclipse.org/technology/swtbot/releases/latest/"/>
+          <repository
+              url="http://download.eclipse.org/tm/updates/4.0/"/>
+          <repository
+              url="http://download.eclipse.org/releases/mars/"/>
+          <repository
+              url="http://download.eclipse.org/eclipse/updates/4.5/"/>
+          <repository
+              url="http://download.eclipse.org/tools/ptp/builds/remote/2.0.0"/>
+          <repository
+              url="http://download.eclipse.org/cbi/updates/license"/>
+          <repository
+              url="http://download.eclipse.org/tm/terminal/marketplace/"/>
+        </repositoryList>
+      </targlet>
+    </setupTask>
+    <setupTask
+        xsi:type="projects:ProjectsImportTask">
+      <sourceLocator
+          rootFolder="${git.clone.eclipse-poky.location}"
+          locateNestedProjects="true"/>
+    </setupTask>
+    <setupTask
+        xsi:type="setup.workingsets:WorkingSetTask">
+      <workingSet
+          name="eclipse-poky">
+        <predicate
+            xsi:type="predicates:RepositoryPredicate"
+            project="org.yocto.sdk-feature"/>
+      </workingSet>
+      <description>The dynamic working sets for ${scope.project.label}</description>
+    </setupTask>
+  </stream>
+  <logicalProjectContainer
+      xsi:type="setup:ProjectCatalog"
+      href="index:/org.eclipse.setup#//@projectCatalogs[name='org.eclipse']"/>
+  <description>Yocto Project SDK Eclipse Plugin</description>
+</setup:Project>

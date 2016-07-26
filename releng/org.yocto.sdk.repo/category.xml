@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <category-def name="main" label="Yocto Project Eclipse Plugin Main Features"/>
+   <category-def name="extra" label="Yocto Project Eclipse Plugin Optional Features"/>
+   <category-def name="preview" label="Yocto Project Preview Features"/>
+   <category-def name="deprecated" label="Yocto Project Deprecated Features"/>
+   <category-def name="obsolete" label="Yocto Project Obsolete Features"/>
+   <category-def name="source" label="Yocto Project Source Features"/>
+   <feature url="features/org.yocto.sdk_0.0.0.qualifier.jar" id="org.yocto.sdk" version="0.0.0">
+      <category name="main"/>
+   </feature>
+   <feature url="features/org.yocto.utils_0.0.0.qualifier.jar" id="org.yocto.utils" version="0.0.0">
+      <category name="main"/>
+   </feature>
+   <feature url="features/org.yocto.sdk.source_0.0.0.qualifier.jar" id="org.yocto.sdk.source" version="0.0.0">
+   <feature url="features/org.yocto.utils.source_0.0.0.qualifier.jar" id="org.yocto.utils.source" version="0.0.0">
+      <category name="source"/>
+   </feature>
+</site>

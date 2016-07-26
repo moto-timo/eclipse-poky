@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<?pde version="3.8"?><target name="eclipse-poky target" sequenceNumber="26">
+<locations>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.tm.terminal.control.sdk.feature.feature.group" version="0.0.0" />
+<unit id="org.eclipse.tm.terminal.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.tm.terminal.connector.remote.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.tm.terminal.view.rse.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.tm.terminal.connector.telnet.sdk.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.tm.terminal.view.sdk.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.tm.terminal.connector.serial.sdk.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.tm.terminal.view.rse.sdk.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.tm.terminal.connector.remote.sdk.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.tm.terminal.connector.ssh.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.tm.terminal.connector.local.sdk.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.tm.terminal.connector.serial.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.rse.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.tm.terminal.sdk.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.tm.terminal.connector.local.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.tm.terminal.view.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.tm.terminal.connector.telnet.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.rse.terminals.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.tm.terminal.connector.ssh.sdk.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.tm.terminal.control.feature.feature.group" version="0.0.0"/>
+<repository location="http://download.eclipse.org/tm/terminal/marketplace/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.swtbot.eclipse.test.junit.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.swtbot.ide.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.swtbot.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.swtbot.eclipse.source.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.swtbot.ide.source.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.swtbot.source.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.swtbot.eclipse.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.swtbot.generator.feature.source.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.swtbot.generator.feature.feature.group" version="0.0.0"/>
+<repository location="http://download.eclipse.org/technology/swtbot/releases/latest/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.license.feature.group" version="1.0.1.v20140414-1359"/>
+<repository location="http://download.eclipse.org/cbi/updates/license"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.slf4j.api" version="0.0.0"/>
+<unit id="com.google.gson" version="0.0.0"/>
+<unit id="org.slf4j.log4j" version="0.0.0"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20160221192158/repository/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.remote.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.cdt.gnu.multicorevisualizer.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.cdt.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.m2e.logback.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.mylyn.bugzilla_feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.cdt.testsrunner.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.launchbar.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.tracecompass.lttng2.kernel.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.cdt.autotools.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.mylyn.git.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.mylyn.github.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.cdt.launch.remote.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.m2e.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.tracecompass.lttng2.ust.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.tcf.te.tcf.launch.cdt.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.egit.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.linuxtools.gcov.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.linuxtools.cdt.libhover.feature.feature.group" version="0.0.0"/>
+<unit id="org.eclipse.linuxtools.cdt.libhover.devhelp.feature.feature.group" version="0.0.0"/>
+<repository location="http://download.eclipse.org/releases/mars/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="org.eclipse.platform.ide" version="0.0.0"/>
+<unit id="org.eclipse.sdk.ide" version="0.0.0"/>
+<repository location="http://download.eclipse.org/eclipse/updates/4.5/"/>
+</location>
+</locations>
+</target>
